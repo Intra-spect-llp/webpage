@@ -6,18 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SEO -->
-    <title>Intra-spect – Affordable Home Inspection Software</title>
+    <title>Intra-spect – Affordable Home Inspection Reporting App</title>
     <meta name="description"
-        content="Intra-spect is an affordable home inspection app that lets inspectors create custom templates, collect form data, take photos, and generate PDF reports quickly.">
+        content="The smart, affordable way to create professional home inspection reports from your phone or tablet. Available on Android and iOS.">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Intra-spect – Affordable Home Inspection Software" />
+    <meta property="og:title" content="Intra-spect – Home Inspection Reporting App" />
     <meta property="og:description"
-        content="Home inspection mobile app for creating custom templates, gathering data, taking photos, and generating PDF reports." />
+        content="Create professional home inspection reports right from your phone or tablet. Checkbox & narrative templates, photo documentation, PDF reports, works offline." />
     <meta property="og:type" content="website" />
 
-    <!-- Fallback for older browsers -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="shortcut icon" href="favicon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Schema.org -->
     <script type="application/ld+json">
@@ -26,248 +32,942 @@
       "@type": "MobileApplication",
       "name": "Intra-spect",
       "operatingSystem": "iOS, Android",
-      "applicationCategory": "Utility",
-      "description": "Home inspection mobile app for custom templates, rapid data collection, photos, and PDF report generation."
+      "applicationCategory": "BusinessApplication",
+      "description": "Professional home inspection reporting app with custom templates, photo documentation, and PDF report generation. Works offline.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
     }
     </script>
 
     <style>
-        body {
+        *, *::before, *::after {
+            box-sizing: border-box;
             margin: 0;
-            font-family: Arial, sans-serif;
-            color: #101E38;
-            background: #f7f7f7;
-            line-height: 1.6;
+            padding: 0;
         }
 
-        header {
-            padding: 40px 20px;
-            text-align: center;
-            background: #FFFFFF;
-            border-bottom: 1px solid #eee;
+        :root {
+            --navy: #101E38;
+            --purple: #BCA1C4;
+            --purple-light: #e8dded;
+            --gray: #8C8E91;
+            --gray-light: #f5f5f7;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+            --radius: 16px;
         }
 
-        .logo {
-            font-size: 32px;
-            font-weight: bold;
-            color: #101E38;
-            margin-bottom: 10px;
+        html {
+            scroll-behavior: smooth;
         }
 
-        .tagline {
-            font-size: 20px;
-            color: #8C8E91;
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--navy);
+            background: var(--white);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
+        /* ── Nav ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            transition: box-shadow 0.3s ease;
         }
 
+        nav.scrolled {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            height: 36px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--navy);
+        }
+
+        /* ── Hero ── */
         .hero {
+            padding: 160px 24px 100px;
             text-align: center;
+            background: linear-gradient(180deg, var(--gray-light) 0%, var(--white) 100%);
         }
 
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 25px;
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 100px;
+            background: var(--purple-light);
+            color: var(--navy);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            margin-bottom: 24px;
         }
 
-        .cta-buttons {
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.25rem);
+            font-weight: 800;
+            line-height: 1.15;
+            max-width: 780px;
+            margin: 0 auto 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--purple), #8a6d94);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: var(--gray);
+            max-width: 620px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
             display: flex;
             justify-content: center;
-            gap: 16px;
+            gap: 14px;
             flex-wrap: wrap;
         }
 
-        .cta-buttons a {
+        .btn {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            border: 1px solid transparent;
-        }
-
-        .btn-ios {
-            background: #000;
-            color: #fff;
-        }
-
-        .btn-ios:hover {
-            background: #2d2d2d;
-        }
-
-        .btn-ios::before {
-            content: "";
-            display: inline-block;
-            width: 20px;
-            height: 24px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath fill='%23ffffff' d='M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z'/%3E%3C/svg%3E");
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-
-        .btn-android {
-            background: #000;
-            color: #fff;
-        }
-
-        .btn-android:hover {
-            background: #2d2d2d;
-        }
-
-        .btn-android::before {
-            content: "";
-            display: inline-block;
-            width: 20px;
-            height: 24px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E%3Cpath fill='%23ffffff' d='M420.55 301.93a24 24 0 1 1 24-24 24 24 0 0 1-24 24m-265.1 0a24 24 0 1 1 24-24 24 24 0 0 1-24 24m273.7-144.48 47.94-83a10 10 0 1 0-17.27-10h0l-48.54 84.07a301.25 301.25 0 0 0-246.56 0L116.18 64.45a10 10 0 1 0-17.27 10h0l47.94 83C64.53 202.22 8.24 285.55 0 384H576c-8.24-98.45-64.54-181.78-146.85-226.55'/%3E%3C/svg%3E");
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-
-        .section {
-            margin-top: 60px;
-        }
-
-        .section h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .feature-box {
-            background: white;
-            padding: 30px;
+            padding: 14px 28px;
             border-radius: 12px;
-            border: 1px solid #e0e0e0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            border: none;
             cursor: pointer;
         }
 
-        .feature-box:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 4px 16px rgba(188, 161, 196, 0.25);
-            border-color: #101E38;
+        .btn-primary {
+            background: var(--navy);
+            color: var(--white);
         }
 
-        .feature-box strong {
-            display: block;
-            font-size: 18px;
-            color: #101E38;
-            margin-bottom: 12px;
+        .btn-primary:hover {
+            background: #1a2d4f;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
 
-        .feature-box p {
-            margin: 0;
-            color: #8C8E91;
-            font-size: 15px;
+        .btn-secondary {
+            background: var(--white);
+            color: var(--navy);
+            border: 1.5px solid #e0e0e0;
         }
 
-        footer {
+        .btn-secondary:hover {
+            border-color: var(--navy);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        /* ── Section shared ── */
+        .section {
+            padding: 100px 24px;
+        }
+
+        .section-header {
             text-align: center;
-            padding: 40px;
-            margin-top: 40px;
-            background: #fff;
-            border-top: 1px solid #eee;
-            color: #777;
+            margin-bottom: 60px;
         }
 
-        .logo {
-            width: 300px;
+        .section-header h2 {
+            font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.05rem;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* ── Features ── */
+        .features-section {
+            background: var(--gray-light);
+        }
+
+        .features-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 36px 32px;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon.blue { background: #e8edf5; }
+        .feature-icon.purple { background: var(--purple-light); }
+        .feature-icon.green { background: #e3f5e8; }
+        .feature-icon.orange { background: #fef0e4; }
+
+        .feature-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+        /* ── Highlights (alternating) ── */
+        .highlights {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
+
+        .highlight-row {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .highlight-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .highlight-text {
+            flex: 1;
+        }
+
+        .highlight-text .label {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 16px;
+        }
+
+        .highlight-text .label.purple { background: var(--purple-light); color: #6b4d75; }
+        .highlight-text .label.blue { background: #e8edf5; color: var(--navy); }
+        .highlight-text .label.green { background: #e3f5e8; color: #2d6a3e; }
+        .highlight-text .label.orange { background: #fef0e4; color: #8b5e2f; }
+
+        .highlight-text h3 {
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            font-weight: 700;
+            margin-bottom: 14px;
+            letter-spacing: -0.01em;
+        }
+
+        .highlight-text p {
+            color: var(--gray);
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+
+        .highlight-visual {
+            flex: 1;
+            background: var(--gray-light);
+            border-radius: var(--radius);
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            overflow: hidden;
+        }
+
+        .highlight-visual svg {
+            width: 100%;
+            max-width: 320px;
             height: auto;
-            display: block;
-            margin: 0 auto 20px;
+        }
+
+        /* Mock UI elements */
+        .mock-checklist {
+            width: 100%;
+            max-width: 280px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .mock-checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--white);
+            padding: 14px 16px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .mock-checkbox {
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            border: 2px solid #d0d0d0;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mock-checkbox.checked {
+            background: var(--purple);
+            border-color: var(--purple);
+        }
+
+        .mock-checkbox.checked::after {
+            content: "✓";
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .mock-text {
+            height: 10px;
+            border-radius: 5px;
+            background: #e0e0e0;
+            flex: 1;
+        }
+
+        .mock-text.short { width: 60%; flex: none; }
+        .mock-text.medium { width: 80%; flex: none; }
+
+        /* PDF mock */
+        .mock-pdf {
+            width: 200px;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow-md);
+            padding: 24px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .mock-pdf-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+
+        .mock-pdf-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: #e74c3c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .mock-pdf-title {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .mock-pdf-line {
+            height: 8px;
+            border-radius: 4px;
+            background: #e8e8e8;
+        }
+
+        .mock-pdf-photo {
+            width: 100%;
+            height: 60px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #ddd 0%, #c8c8c8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-size: 20px;
+        }
+
+        /* Price mock */
+        .mock-price {
+            text-align: center;
+        }
+
+        .mock-price-old {
+            font-size: 18px;
+            color: var(--gray);
+            text-decoration: line-through;
+            margin-bottom: 4px;
+        }
+
+        .mock-price-new {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1;
+        }
+
+        .mock-price-new span {
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--gray);
+        }
+
+        .mock-price-label {
+            font-size: 14px;
+            color: var(--gray);
+            margin-top: 6px;
+        }
+
+        .mock-price-badge {
+            display: inline-block;
+            background: #e3f5e8;
+            color: #2d6a3e;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 100px;
+            margin-top: 12px;
+        }
+
+        /* Offline mock */
+        .mock-offline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .mock-signal-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 40px;
+        }
+
+        .mock-signal-bars .bar {
+            width: 10px;
+            border-radius: 3px;
+            background: #d0d0d0;
+        }
+
+        .mock-signal-bars .bar:nth-child(1) { height: 25%; }
+        .mock-signal-bars .bar:nth-child(2) { height: 50%; }
+        .mock-signal-bars .bar:nth-child(3) { height: 75%; }
+        .mock-signal-bars .bar:nth-child(4) { height: 100%; }
+
+        .mock-offline-badge {
+            background: var(--white);
+            padding: 10px 20px;
+            border-radius: 100px;
+            box-shadow: var(--shadow-sm);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mock-offline-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #2ecc71;
+        }
+
+        .mock-phone {
+            width: 120px;
+            height: 200px;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            padding: 12px 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .mock-phone-notch {
+            width: 40px;
+            height: 4px;
+            border-radius: 2px;
+            background: #e0e0e0;
+        }
+
+        .mock-phone-screen {
+            flex: 1;
+            width: 100%;
+            background: var(--gray-light);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            padding: 8px;
+            gap: 4px;
+        }
+
+        .mock-phone-line {
+            height: 6px;
+            border-radius: 3px;
+            background: #ddd;
+        }
+
+        .mock-phone-line.accent { background: var(--purple-light); }
+
+        /* ── CTA ── */
+        .cta-section {
+            background: var(--navy);
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.05rem;
+            max-width: 520px;
+            margin: 0 auto 36px;
+        }
+
+        .cta-section .btn-primary {
+            background: var(--purple);
+            color: var(--navy);
+        }
+
+        .cta-section .btn-primary:hover {
+            background: #cdb4d4;
+        }
+
+        .cta-section .btn-secondary {
+            border-color: rgba(255,255,255,0.25);
+            color: var(--white);
+        }
+
+        .cta-section .btn-secondary:hover {
+            border-color: rgba(255,255,255,0.6);
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: var(--gray-light);
+            padding: 40px 24px;
+            text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-inner p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--navy);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .highlight-row,
+            .highlight-row:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .highlight-visual {
+                min-height: 200px;
+                width: 100%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 130px 20px 70px;
+            }
+
+            .section {
+                padding: 70px 20px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* ── Animations ── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 
 <body>
 
-    <div class="hero">
-        <div class="logo-wrapper">
-            <img src="logo.svg" alt="Intra-spect logo" class="logo">
+    <!-- Nav -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <img src="logo.svg" alt="Intra-spect" class="nav-logo">
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#details">Why Intra-spect</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="privacy-policy.html">Privacy</a></li>
+            </ul>
         </div>
-        <h1>Affordable Home Inspection Software</h1>
-    </div>
+    </nav>
 
-    <div class="container">
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-badge">📱 Available on Android & iOS</div>
+        <h1>Professional Inspection Reports, <span>Right From Your Phone</span></h1>
+        <p class="hero-sub">
+            The smart, affordable way to create professional home inspection reports from your phone or tablet.
+            Built for today's home inspector — no high monthly fees, no complicated learning curve.
+        </p>
+        <div class="hero-buttons">
+            <a href="#" class="btn btn-primary">
+                <svg viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+                App Store (Coming Soon)
+            </a>
+            <a href="#" class="btn btn-secondary">
+                <svg viewBox="0 0 576 512" fill="currentColor"><path d="M420.55 301.93a24 24 0 1 1 24-24 24 24 0 0 1-24 24m-265.1 0a24 24 0 1 1 24-24 24 24 0 0 1-24 24m273.7-144.48 47.94-83a10 10 0 1 0-17.27-10h0l-48.54 84.07a301.25 301.25 0 0 0-246.56 0L116.18 64.45a10 10 0 1 0-17.27 10h0l47.94 83C64.53 202.22 8.24 285.55 0 384H576c-8.24-98.45-64.54-181.78-146.85-226.55"/></svg>
+                Google Play (Coming Soon)
+            </a>
+        </div>
+    </section>
 
-        <section class="hero">
-            <p>
-                A powerful home inspection mobile app that allows inspectors to create custom templates,
-                quickly gather and fill out forms, take pictures, and generate professional PDF reports.
-            </p>
-
-            <div class="cta-buttons">
-                <!-- Replace # when links are ready -->
-                <a href="#" class="btn-ios">Download on the App Store (Coming soon)</a>
-                <a href="#" class="btn-android">Get it on Google Play (Coming soon)</a>
+    <!-- Features Grid -->
+    <section class="section features-section" id="features">
+        <div class="section-header">
+            <h2>Everything You Need. Nothing You Don't.</h2>
+            <p>Built specifically for home inspectors who want professional results without the bloat.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card fade-up">
+                <div class="feature-icon blue">✅</div>
+                <h3>Easy to Use</h3>
+                <p>Choose from checkbox-style templates for fast inspections or detailed narrative templates for your professional touch. Intuitive, streamlined, and customizable.</p>
             </div>
-        </section>
-
-        <section class="section">
-            <h2>Why Intra-spect?</h2>
-            <div class="features">
-
-                <div class="feature-box">
-                    <strong>Custom Templates</strong>
-                    <p>Create your own home inspection templates tailored to your workflow.</p>
-                </div>
-
-                <div class="feature-box">
-                    <strong>Fast Data Collection</strong>
-                    <p>Fill out forms quickly and efficiently on-site.</p>
-                </div>
-
-                <div class="feature-box">
-                    <strong>Photo Capture</strong>
-                    <p>Take and attach photos directly inside the inspection report.</p>
-                </div>
-
-                <div class="feature-box">
-                    <strong>PDF Report Generation</strong>
-                    <p>Generate clean, professional PDF inspection reports instantly.</p>
-                </div>
-
-                <div class="feature-box">
-                    <strong>Keep Track of Clients</strong>
-                    <p>
-                        Easily store, organize, and manage all your clients in one place.
-                    </p>
-                </div>
-
-                <div class="feature-box">
-                    <strong>Import From Other Apps</strong>
-                    <p>
-                        Switching to Intra-spect is simple. Quickly import your templates and client lists,
-                        from InspectIT
-                    </p>
-                </div>
-
+            <div class="feature-card fade-up">
+                <div class="feature-icon purple">📄</div>
+                <h3>Professional PDF Reports</h3>
+                <p>Generate polished, easy-to-follow PDF reports with photos of housing defects embedded directly in the report. Clean format, clear explanations.</p>
             </div>
-        </section>
+            <div class="feature-card fade-up">
+                <div class="feature-icon green">💰</div>
+                <h3>Cost-Effective</h3>
+                <p>Perfect for new inspectors and solo operators. No bloated subscriptions, no unnecessary extras — just the tools you need to get the job done.</p>
+            </div>
+            <div class="feature-card fade-up">
+                <div class="feature-icon orange">📡</div>
+                <h3>Works Offline</h3>
+                <p>No internet? No problem. The app runs completely offline, so you can complete inspections anywhere — even in areas with poor or no connectivity.</p>
+            </div>
+        </div>
+    </section>
 
-    </div>
+    <!-- Detailed Highlights -->
+    <section class="section" id="details">
+        <div class="section-header">
+            <h2>Built for How You Work</h2>
+            <p>Every feature is designed to save you time, reduce overhead, and deliver results your clients will love.</p>
+        </div>
+        <div class="highlights">
 
+            <div class="highlight-row fade-up">
+                <div class="highlight-text">
+                    <span class="label purple">Templates</span>
+                    <h3>Inspect Your Way</h3>
+                    <p>Choose checkbox-style templates for fast, efficient inspections — or switch to detailed narrative templates to add your professional touch. Layouts are intuitive, streamlined, customizable, and designed to save you time on every job.</p>
+                </div>
+                <div class="highlight-visual">
+                    <div class="mock-checklist">
+                        <div class="mock-checklist-item">
+                            <div class="mock-checkbox checked"></div>
+                            <div class="mock-text medium"></div>
+                        </div>
+                        <div class="mock-checklist-item">
+                            <div class="mock-checkbox checked"></div>
+                            <div class="mock-text short"></div>
+                        </div>
+                        <div class="mock-checklist-item">
+                            <div class="mock-checkbox"></div>
+                            <div class="mock-text"></div>
+                        </div>
+                        <div class="mock-checklist-item">
+                            <div class="mock-checkbox"></div>
+                            <div class="mock-text medium"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-row fade-up">
+                <div class="highlight-text">
+                    <span class="label blue">Reports</span>
+                    <h3>Clear, Professional PDF Reports</h3>
+                    <p>Generate polished reports that include photos of housing defects directly within the document. Your clients will appreciate the clean format and clear explanations — and you'll appreciate how quickly they're produced.</p>
+                </div>
+                <div class="highlight-visual">
+                    <div class="mock-pdf">
+                        <div class="mock-pdf-header">
+                            <div class="mock-pdf-icon">PDF</div>
+                            <div class="mock-pdf-title">
+                                <div class="mock-pdf-line" style="width: 90px;"></div>
+                                <div class="mock-pdf-line" style="width: 60px;"></div>
+                            </div>
+                        </div>
+                        <div class="mock-pdf-photo">🏠</div>
+                        <div class="mock-pdf-line" style="width: 100%;"></div>
+                        <div class="mock-pdf-line" style="width: 85%;"></div>
+                        <div class="mock-pdf-line" style="width: 70%;"></div>
+                        <div class="mock-pdf-photo" style="height: 45px;">📷</div>
+                        <div class="mock-pdf-line" style="width: 95%;"></div>
+                        <div class="mock-pdf-line" style="width: 60%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-row fade-up">
+                <div class="highlight-text">
+                    <span class="label green">Pricing</span>
+                    <h3>Keep More of What You Earn</h3>
+                    <p>Perfect for new inspectors and solo operators who want to keep expenses low while delivering high-quality reports. No bloated subscriptions. No unnecessary extras. Just the tools you need.</p>
+                </div>
+                <div class="highlight-visual">
+                    <div class="mock-price">
+                        <div class="mock-price-old">$200+/mo with other apps</div>
+                        <div class="mock-price-new" style="font-size: 32px;">A fraction <span>of the cost</span></div>
+                        <div class="mock-price-label">No bloated subscriptions. No surprises.</div>
+                        <div class="mock-price-badge">💰 Keep more of what you earn</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-row fade-up">
+                <div class="highlight-text">
+                    <span class="label orange">Reliability</span>
+                    <h3>Inspect Anywhere, Anytime</h3>
+                    <p>The app runs completely offline — complete inspections in basements, rural properties, or anywhere with poor connectivity. Your workflow never depends on a Wi-Fi signal.</p>
+                </div>
+                <div class="highlight-visual">
+                    <div class="mock-offline">
+                        <div class="mock-phone">
+                            <div class="mock-phone-notch"></div>
+                            <div class="mock-phone-screen">
+                                <div class="mock-phone-line accent" style="width: 70%;"></div>
+                                <div class="mock-phone-line" style="width: 100%;"></div>
+                                <div class="mock-phone-line" style="width: 85%;"></div>
+                                <div class="mock-phone-line accent" style="width: 50%;"></div>
+                                <div class="mock-phone-line" style="width: 100%;"></div>
+                                <div class="mock-phone-line" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                        <div class="mock-offline-badge">
+                            <div class="mock-offline-dot"></div>
+                            Works offline
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- More Features -->
+    <section class="section features-section">
+        <div class="section-header">
+            <h2>Plus More Built-In Tools</h2>
+        </div>
+        <div class="features-grid" style="max-width: 800px; margin: 0 auto;">
+            <div class="feature-card fade-up">
+                <div class="feature-icon blue">📸</div>
+                <h3>Photo Documentation</h3>
+                <p>Capture and attach photos directly inside your inspection report for clear visual evidence of findings.</p>
+            </div>
+            <div class="feature-card fade-up">
+                <div class="feature-icon purple">👥</div>
+                <h3>Client Management</h3>
+                <p>Easily store, organize, and manage all your clients in one place — keep your business running smoothly.</p>
+            </div>
+            <div class="feature-card fade-up">
+                <div class="feature-icon green">📥</div>
+                <h3>Import From Other Apps</h3>
+                <p>Switching to Intra-spect is simple. Quickly import your templates and client lists from InspectIT and other apps.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-section" id="download">
+        <h2>Ready to Inspect Smarter?</h2>
+        <p>Simplify your workflow, reduce overhead, and deliver professional reports every time.</p>
+        <div class="hero-buttons">
+            <a href="#" class="btn btn-primary">
+                <svg viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+                App Store (Coming Soon)
+            </a>
+            <a href="#" class="btn btn-secondary">
+                <svg viewBox="0 0 576 512" fill="currentColor"><path d="M420.55 301.93a24 24 0 1 1 24-24 24 24 0 0 1-24 24m-265.1 0a24 24 0 1 1 24-24 24 24 0 0 1-24 24m273.7-144.48 47.94-83a10 10 0 1 0-17.27-10h0l-48.54 84.07a301.25 301.25 0 0 0-246.56 0L116.18 64.45a10 10 0 1 0-17.27 10h0l47.94 83C64.53 202.22 8.24 285.55 0 384H576c-8.24-98.45-64.54-181.78-146.85-226.55"/></svg>
+                Google Play (Coming Soon)
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        © <span id="year"></span> Intra-spect. All rights reserved.
+        <div class="footer-inner">
+            <p>© <span id="year"></span> Intra-spect Reporting LLP. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="mailto:info@intra-spect.com">Contact</a></li>
+            </ul>
+        </div>
     </footer>
 
     <script>
-        document.getElementById("year").textContent = new Date().getFullYear();
+        // Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Navbar scroll effect
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 10);
+        });
+
+        // Fade-up on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     </script>
 
 </body>
