@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Intra-spect | Home Inspection Tips & Guides</title>
+    <meta name="description" content="Expert guides, tips, and resources for home inspectors. Learn how to start your business, improve your reports, and grow your inspection career.">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="shortcut icon" href="../favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --navy: #101E38;
+            --purple: #BCA1C4;
+            --purple-light: #e8dded;
+            --gray: #8C8E91;
+            --gray-light: #f5f5f7;
+            --white: #ffffff;
+        }
+        body { font-family: 'Inter', -apple-system, sans-serif; color: var(--navy); background: var(--white); line-height: 1.7; }
+        a { color: var(--navy); text-decoration: none; }
+
+        nav { background: rgba(255,255,255,0.9); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.06); padding: 14px 24px; position: sticky; top: 0; z-index: 100; }
+        .nav-inner { max-width: 800px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { height: 36px; }
+        .nav-links { display: flex; gap: 24px; list-style: none; }
+        .nav-links a { color: var(--gray); font-size: 14px; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--navy); }
+
+        .hero { padding: 80px 24px 40px; text-align: center; background: var(--gray-light); }
+        .hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 12px; }
+        .hero p { color: var(--gray); font-size: 1.1rem; max-width: 500px; margin: 0 auto; }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 24px 80px; }
+
+        .post-card { display: block; padding: 32px 0; border-bottom: 1px solid #eee; transition: all 0.2s; }
+        .post-card:hover { padding-left: 8px; }
+        .post-card:first-child { padding-top: 0; }
+        .post-meta { font-size: 13px; color: var(--gray); margin-bottom: 8px; display: flex; gap: 12px; }
+        .post-tag { background: var(--purple-light); color: var(--navy); padding: 2px 10px; border-radius: 100px; font-size: 11px; font-weight: 600; }
+        .post-card h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 8px; }
+        .post-card p { color: var(--gray); font-size: 0.95rem; }
+        .post-card .read-more { color: var(--purple); font-weight: 600; font-size: 14px; margin-top: 8px; display: inline-block; }
+
+        footer { text-align: center; padding: 32px; color: var(--gray); font-size: 13px; border-top: 1px solid #eee; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <a href="/"><img src="../favicon.svg" alt="Intra-spect" class="nav-logo"></a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog/" style="color: var(--navy); font-weight: 600;">Blog</a></li>
+                <li><a href="/privacy-policy.html">Privacy</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Intra-spect Blog</h1>
+        <p>Guides, tips, and resources for home inspectors.</p>
+    </div>
+
+    <div class="container">
+        <a href="how-to-start-a-home-inspection-business.html" class="post-card">
+            <div class="post-meta">
+                <span>June 1, 2026</span>
+                <span class="post-tag">Getting Started</span>
+            </div>
+            <h2>How to Start a Home Inspection Business in 2026: The Complete Guide</h2>
+            <p>Everything you need to know about licensing, training, equipment, pricing, and landing your first clients as a new home inspector.</p>
+            <span class="read-more">Read more →</span>
+        </a>
+    </div>
+
+    <footer>
+        © <script>document.write(new Date().getFullYear())</script> Intra-spect Reporting LLP. All rights reserved.
+    </footer>
+</body>
+</html>
