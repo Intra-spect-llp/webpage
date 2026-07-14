@@ -10,6 +10,14 @@ Intra-spect is an affordable home inspection reporting app for iOS and Android. 
 
 ## Blog Posts
 
+- Best Spectora Alternatives for Solo Home Inspectors
+  https://intra-spect.com/blog/best-spectora-alternatives-solo-home-inspectors
+  Compares practical Spectora alternatives for solo home inspectors by cost, offline workflow, PDF reports, mobile platform fit, templates, and business automation.
+
+- How to Write Better Home Inspection Comments
+  https://intra-spect.com/blog/how-to-write-better-home-inspection-comments
+  Explains how home inspectors can write clearer report comments using observation, implication, recommendation, context, photo captions, and reusable comment libraries.
+
 - Best Home Inspection Software 2026: An Honest Comparison
   https://intra-spect.com/blog/best-home-inspection-software-2026
   Compares Spectora, HomeGauge, Tap Inspect, Horizon, and Intra-spect on pricing, offline capability, reporting, and inspector workflow.
