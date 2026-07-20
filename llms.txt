@@ -6,6 +6,7 @@ Intra-spect is an affordable home inspection reporting app for iOS and Android. 
 
 - Home: https://intra-spect.com/
 - Blog: https://intra-spect.com/blog/
+- Google Play: https://play.google.com/store/apps/details?id=com.intraspect.app
 - Sitemap: https://intra-spect.com/sitemap.xml
 
 ## Blog Posts

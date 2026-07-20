@@ -6,15 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SEO -->
-    <title>Intra-spect – Affordable Home Inspection Reporting App</title>
+    <title>Home Inspection Software &amp; Report App | Intra-spect</title>
     <meta name="description"
-        content="The smart, affordable way to create professional home inspection reports from your phone or tablet. Available on Android and iOS.">
+        content="Affordable home inspection software for creating professional PDF reports with photos, custom templates, and offline access on Android and iOS.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://intra-spect.com/">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Intra-spect – Home Inspection Reporting App" />
+    <meta property="og:title" content="Home Inspection Software &amp; Report App | Intra-spect" />
     <meta property="og:description"
-        content="Create professional home inspection reports right from your phone or tablet. Checkbox & narrative templates, photo documentation, PDF reports, works offline." />
+        content="Create professional home inspection reports right from your phone or tablet. Checkbox &amp; narrative templates, photo documentation, PDF reports, works offline." />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://intra-spect.com/" />
+    <meta property="og:site_name" content="Intra-spect" />
+    <meta property="og:image" content="https://intra-spect.com/logo.svg" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Home Inspection Software &amp; Report App | Intra-spect" />
+    <meta name="twitter:description" content="Create professional home inspection reports with photos, custom templates, and offline access." />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -23,22 +31,58 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
 
     <!-- Schema.org -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "MobileApplication",
-      "name": "Intra-spect",
-      "operatingSystem": "iOS, Android",
-      "applicationCategory": "BusinessApplication",
-      "description": "Professional home inspection reporting app with custom templates, photo documentation, and PDF report generation. Works offline.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://intra-spect.com/#organization",
+          "name": "Intra-spect Reporting",
+          "url": "https://intra-spect.com/",
+          "logo": "https://intra-spect.com/logo.svg",
+          "email": "info@intra-spect.com",
+          "sameAs": [
+            "https://play.google.com/store/apps/details?id=com.intraspect.app"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://intra-spect.com/#website",
+          "url": "https://intra-spect.com/",
+          "name": "Intra-spect",
+          "description": "Home inspection reporting software for professional inspectors.",
+          "publisher": { "@id": "https://intra-spect.com/#organization" },
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "MobileApplication",
+          "@id": "https://intra-spect.com/#app",
+          "name": "Intra-spect Reporting",
+          "url": "https://intra-spect.com/",
+          "downloadUrl": "https://play.google.com/store/apps/details?id=com.intraspect.app",
+          "operatingSystem": "Android, iOS",
+          "applicationCategory": "BusinessApplication",
+          "description": "Home inspection reporting app with custom templates, photo documentation, PDF report generation, and offline access.",
+          "featureList": [
+            "Offline inspection report writing",
+            "Custom checkbox and narrative templates",
+            "Photo documentation",
+            "Professional PDF report generation",
+            "Client management"
+          ],
+          "publisher": { "@id": "https://intra-spect.com/#organization" },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "description": "Free download with optional in-app purchases"
+          }
+        }
+      ]
     }
     </script>
 
@@ -682,8 +726,53 @@
             color: var(--navy);
         }
 
+        .resources-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .resource-card {
+            display: block;
+            padding: 28px;
+            border: 1px solid #e6e6e9;
+            border-radius: var(--radius);
+            color: var(--navy);
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .resource-card .label {
+            color: #765b80;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .resource-card h3 {
+            margin: 10px 0 8px;
+            font-size: 1.15rem;
+            line-height: 1.35;
+        }
+
+        .resource-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
         /* ── Responsive ── */
         @media (max-width: 768px) {
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
             .highlight-row,
             .highlight-row:nth-child(even) {
                 flex-direction: column;
@@ -731,13 +820,13 @@
     <!-- Nav -->
     <nav id="navbar">
         <div class="nav-inner">
-            <img src="favicon.svg" alt="Intra-spect" class="nav-logo">
+            <a href="/" aria-label="Intra-spect home"><img src="favicon.svg" alt="Intra-spect" class="nav-logo"></a>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
                 <li><a href="#details">Why Intra-spect</a></li>
                 <li><a href="#download">Download</a></li>
                 <li><a href="/blog/">Blog</a></li>
-                <li><a href="privacy-policy.html">Privacy</a></li>
+                <li><a href="/privacy-policy">Privacy</a></li>
             </ul>
         </div>
     </nav>
@@ -745,7 +834,7 @@
     <!-- Hero -->
     <section class="hero">
         <div class="hero-badge">📱 Available on Android & iOS</div>
-        <h1>Professional Inspection Reports, <span>Right From Your Phone</span></h1>
+        <h1>Home Inspection Software for <span>Professional Reports</span></h1>
         <p class="hero-sub">
             The smart, affordable way to create professional home inspection reports from your phone or tablet.
             Built for today's home inspector — no high monthly fees, no complicated learning curve.
@@ -953,6 +1042,31 @@
         </div>
     </section>
 
+    <!-- Home Inspector Resources -->
+    <section class="section" aria-labelledby="resources-title">
+        <div class="section-header">
+            <h2 id="resources-title">Home Inspection Resources</h2>
+            <p>Practical guidance for choosing software, writing clearer reports, and building your inspection business.</p>
+        </div>
+        <div class="resources-grid">
+            <a class="resource-card" href="/blog/best-home-inspection-software-2026">
+                <span class="label">Software Guide</span>
+                <h3>Best Home Inspection Software in 2026</h3>
+                <p>Compare reporting tools by workflow, platform, offline access, features, and cost.</p>
+            </a>
+            <a class="resource-card" href="/blog/how-to-write-better-home-inspection-comments">
+                <span class="label">Report Writing</span>
+                <h3>How to Write Better Inspection Comments</h3>
+                <p>Use a repeatable formula to write specific, useful, and professional report comments.</p>
+            </a>
+            <a class="resource-card" href="/blog/how-to-start-a-home-inspection-business">
+                <span class="label">Getting Started</span>
+                <h3>How to Start a Home Inspection Business</h3>
+                <p>Plan licensing, equipment, pricing, software, and your first client acquisition steps.</p>
+            </a>
+        </div>
+    </section>
+
     <!-- CTA -->
     <section class="section cta-section" id="download">
         <h2>Ready to Inspect Smarter?</h2>
@@ -974,7 +1088,8 @@
         <div class="footer-inner">
             <p>© <span id="year"></span> Intra-spect Reporting LLP. All rights reserved.</p>
             <ul class="footer-links">
-                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="/blog/">Home Inspector Blog</a></li>
+                <li><a href="/privacy-policy">Privacy Policy</a></li>
                 <li><a href="mailto:info@intra-spect.com">Contact</a></li>
             </ul>
         </div>
