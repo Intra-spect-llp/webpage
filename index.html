@@ -6,23 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SEO -->
-    <title>Home Inspection Software &amp; Report App | Intra-spect</title>
+    <title>Home Inspection Software for Web, iOS &amp; Android | Intra-spect</title>
     <meta name="description"
-        content="Affordable home inspection software for creating professional PDF reports with photos, custom templates, and offline access on Android and iOS.">
+        content="Run your home inspection business from the field or office with Intra-spect on the web, iOS, and Android. Create inspections, manage clients, and deliver professional reports.">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://intra-spect.com/">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Home Inspection Software &amp; Report App | Intra-spect" />
+    <meta property="og:title" content="Home Inspection Software for Web, iOS &amp; Android | Intra-spect" />
     <meta property="og:description"
-        content="Create professional home inspection reports right from your phone or tablet. Checkbox &amp; narrative templates, photo documentation, PDF reports, works offline." />
+        content="Create inspections, manage clients, and deliver professional reports from the field or office with Intra-spect." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://intra-spect.com/" />
     <meta property="og:site_name" content="Intra-spect" />
     <meta property="og:image" content="https://intra-spect.com/logo.svg" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Home Inspection Software &amp; Report App | Intra-spect" />
-    <meta name="twitter:description" content="Create professional home inspection reports with photos, custom templates, and offline access." />
+    <meta name="twitter:title" content="Home Inspection Software for Web, iOS &amp; Android | Intra-spect" />
+    <meta name="twitter:description" content="Home inspection reporting for the field and office, available on the web, iOS, and Android." />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -46,6 +46,7 @@
           "logo": "https://intra-spect.com/logo.svg",
           "email": "info@intra-spect.com",
           "sameAs": [
+            "https://inspectionapp.intra-spect.com/",
             "https://play.google.com/store/apps/details?id=com.intraspect.app"
           ]
         },
@@ -57,6 +58,16 @@
           "description": "Home inspection reporting software for professional inspectors.",
           "publisher": { "@id": "https://intra-spect.com/#organization" },
           "inLanguage": "en-US"
+        },
+        {
+          "@type": "WebApplication",
+          "@id": "https://intra-spect.com/#web-app",
+          "name": "Intra-spect Web App",
+          "url": "https://inspectionapp.intra-spect.com/",
+          "operatingSystem": "Any",
+          "applicationCategory": "BusinessApplication",
+          "description": "Browser-based home inspection software for creating inspections, managing clients and properties, customizing templates, and producing professional reports.",
+          "publisher": { "@id": "https://intra-spect.com/#organization" }
         },
         {
           "@type": "MobileApplication",
@@ -288,6 +299,20 @@
         /* ── Features ── */
         .features-section {
             background: var(--gray-light);
+        }
+
+        .platforms-section {
+            background: var(--white);
+        }
+
+        .platform-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .platform-card .btn {
+            align-self: flex-start;
+            margin-top: 24px;
         }
 
         .features-grid {
@@ -822,9 +847,10 @@
         <div class="nav-inner">
             <a href="/" aria-label="Intra-spect home"><img src="favicon.svg" alt="Intra-spect" class="nav-logo"></a>
             <ul class="nav-links">
+                <li><a href="#platforms">Web &amp; Mobile</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#details">Why Intra-spect</a></li>
-                <li><a href="#download">Download</a></li>
+                <li><a href="https://inspectionapp.intra-spect.com/">Open Web App</a></li>
                 <li><a href="/blog/">Blog</a></li>
                 <li><a href="/privacy-policy">Privacy</a></li>
             </ul>
@@ -833,21 +859,42 @@
 
     <!-- Hero -->
     <section class="hero">
-        <div class="hero-badge">📱 Available on Android & iOS</div>
-        <h1>Home Inspection Software for <span>Professional Reports</span></h1>
+        <div class="hero-badge">💻 Available on the web, Android &amp; iOS</div>
+        <h1>Your Complete Home Inspection Workflow, <span>Anywhere You Work</span></h1>
         <p class="hero-sub">
-            The smart, affordable way to create professional home inspection reports from your phone or tablet.
-            Built for today's home inspector — no high monthly fees, no complicated learning curve.
+            <span class="hero-tagline">Less Software. More Inspecting.</span>
+            Create inspections, manage clients and properties, customize templates, and deliver professional reports from the field or the office.
         </p>
         <div class="hero-buttons">
-            <a href="#" class="btn btn-primary">
-                <svg viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-                App Store (Coming Soon)
+            <a href="https://inspectionapp.intra-spect.com/" class="btn btn-primary">
+                Open the Web App
             </a>
-            <a href="https://play.google.com/store/apps/details?id=com.intraspect.app" class="btn btn-secondary" target="_blank">
+            <a href="https://play.google.com/store/apps/details?id=com.intraspect.app" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 576 512" fill="currentColor"><path d="M420.55 301.93a24 24 0 1 1 24-24 24 24 0 0 1-24 24m-265.1 0a24 24 0 1 1 24-24 24 24 0 0 1-24 24m273.7-144.48 47.94-83a10 10 0 1 0-17.27-10h0l-48.54 84.07a301.25 301.25 0 0 0-246.56 0L116.18 64.45a10 10 0 1 0-17.27 10h0l47.94 83C64.53 202.22 8.24 285.55 0 384H576c-8.24-98.45-64.54-181.78-146.85-226.55"/></svg>
                 Get it on Google Play
             </a>
+        </div>
+    </section>
+
+    <!-- Platforms -->
+    <section class="section platforms-section" id="platforms">
+        <div class="section-header">
+            <h2>One Inspection Platform. Web and Mobile.</h2>
+            <p>Use the browser-based workspace at your desk, then take the mobile app into the field.</p>
+        </div>
+        <div class="features-grid" style="max-width: 800px; margin: 0 auto;">
+            <div class="feature-card platform-card fade-up">
+                <div class="feature-icon blue">💻</div>
+                <h3>Intra-spect on the Web</h3>
+                <p>Manage inspections, clients, properties, templates, invoices, photos, and reports from a full browser-based workspace.</p>
+                <a href="https://inspectionapp.intra-spect.com/" class="btn btn-primary">Open the Web App</a>
+            </div>
+            <div class="feature-card platform-card fade-up">
+                <div class="feature-icon purple">📱</div>
+                <h3>Intra-spect Mobile</h3>
+                <p>Complete inspections on site with a streamlined mobile workflow built for Android and iOS, including offline access.</p>
+                <a href="https://play.google.com/store/apps/details?id=com.intraspect.app" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Get the Android App</a>
+            </div>
         </div>
     </section>
 
@@ -855,7 +902,7 @@
     <section class="section features-section" id="features">
         <div class="section-header">
             <h2>Everything You Need. Nothing You Don't.</h2>
-            <p>Built specifically for home inspectors who want professional results without the bloat.</p>
+            <p>Built for home inspectors who want professional results across the web and mobile without the bloat.</p>
         </div>
         <div class="features-grid">
             <div class="feature-card fade-up">
@@ -881,7 +928,7 @@
             <div class="feature-card fade-up">
                 <div class="feature-icon blue">🔒</div>
                 <h3>Your Data Stays Yours</h3>
-                <p>All data lives on your device — we never access, collect, or sell your information. Your clients' details remain strictly confidential.</p>
+                <p>Your inspection business stays yours. We never sell your information, and your clients' details remain confidential.</p>
             </div>
         </div>
     </section>
@@ -994,8 +1041,8 @@
             <div class="highlight-row fade-up">
                 <div class="highlight-text">
                     <span class="label blue">Privacy</span>
-                    <h3>Your Data Stays on Your Device</h3>
-                    <p>We take privacy seriously. All inspection data, client information, and photos are stored locally on your device and never leave it. We don't access, collect, or sell your data — ever. Your clients' information remains strictly confidential, giving you and your customers complete peace of mind.</p>
+                    <h3>Your Business Data Stays Yours</h3>
+                    <p>We take privacy seriously. We don't sell your data, and your clients' information remains confidential. Use local, offline mobile workflows in the field or securely access your web workspace when you need the tools of a larger screen.</p>
                 </div>
                 <div class="highlight-visual">
                     <div class="mock-offline">
@@ -1009,7 +1056,7 @@
                         </svg>
                         <div class="mock-offline-badge">
                             <div class="mock-offline-dot"></div>
-                            100% private &amp; confidential
+                            Private &amp; confidential
                         </div>
                     </div>
                 </div>
@@ -1069,14 +1116,13 @@
 
     <!-- CTA -->
     <section class="section cta-section" id="download">
-        <h2>Ready to Inspect Smarter?</h2>
-        <p>Simplify your workflow, reduce overhead, and deliver professional reports every time.</p>
+        <h2>Inspect. Report. Done.</h2>
+        <p>Start in your browser or take Intra-spect into the field on mobile.</p>
         <div class="hero-buttons">
-            <a href="#" class="btn btn-primary">
-                <svg viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-                App Store (Coming Soon)
+            <a href="https://inspectionapp.intra-spect.com/" class="btn btn-primary">
+                Open the Web App
             </a>
-            <a href="https://play.google.com/store/apps/details?id=com.intraspect.app" class="btn btn-secondary" target="_blank">
+            <a href="https://play.google.com/store/apps/details?id=com.intraspect.app" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 576 512" fill="currentColor"><path d="M420.55 301.93a24 24 0 1 1 24-24 24 24 0 0 1-24 24m-265.1 0a24 24 0 1 1 24-24 24 24 0 0 1-24 24m273.7-144.48 47.94-83a10 10 0 1 0-17.27-10h0l-48.54 84.07a301.25 301.25 0 0 0-246.56 0L116.18 64.45a10 10 0 1 0-17.27 10h0l47.94 83C64.53 202.22 8.24 285.55 0 384H576c-8.24-98.45-64.54-181.78-146.85-226.55"/></svg>
                 Get it on Google Play
             </a>
@@ -1088,6 +1134,7 @@
         <div class="footer-inner">
             <p>© <span id="year"></span> Intra-spect Reporting LLP. All rights reserved.</p>
             <ul class="footer-links">
+                <li><a href="https://inspectionapp.intra-spect.com/">Web App</a></li>
                 <li><a href="/blog/">Home Inspector Blog</a></li>
                 <li><a href="/privacy-policy">Privacy Policy</a></li>
                 <li><a href="mailto:info@intra-spect.com">Contact</a></li>
